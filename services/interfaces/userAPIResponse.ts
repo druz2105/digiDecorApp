@@ -4,6 +4,9 @@ export interface CreateUserResponseInterface {
     createdAt: number;
     email: string;
     firstName: string;
-    lastName: string;
-    username: string
+    lastName: string
+}
+
+export interface LoginResponseInterface extends CreateUserResponseInterface{
+    jwtToken: string
 }

@@ -1,24 +1,24 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Image, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native"
 import {CompositeScreenProps} from "@react-navigation/core/src/types";
 import {useRegistrationStore} from "../store/registerStore";
 import {colorSchemes} from "../styles/themes";
 
 interface RegistrationState {
-    errors: {
-        emailError?: string,
-        firstNameError?: string,
-        lastNameError?: string,
-        passwordError?: string,
-        cPasswordError?: string,
-        generalError?: string,
-    }
+    errors: Record<string, string>
 }
 
 function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
 
-    const {email, firstName, lastName, password, confirmPassword, gender, setField, handleRegister} = useRegistrationStore();
+    const {email, firstName, lastName, password, confirmPassword, resetRegistrationStore, setField, registerUser} = useRegistrationStore();
     const [state, updateState] = useState({errors: {}} as RegistrationState)
+
+    useEffect(() => {
+        return navigation.addListener('focus', () => {
+            resetRegistrationStore()
+            updateState({errors: {}})
+        });
+    }, [navigation]);
 
     // ***** Start Field Validation
     const isValidEmail = (value: string) => {
@@ -31,7 +31,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
         return passwordRegex.test(value);
     };
 
-    const getErrorMessage = (field: string) => {
+    const getErrorMessage = (field: string): Record<string, string> => {
         switch (field){
             case 'email':
                 return {emailError: "Email address is required"}
@@ -62,9 +62,10 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
         return isValid
     }
 
-    const emailValidation = () => {
+    const emailValidation = (text? : string) => {
+        const checkEmail = text || email
         let isValid = true;
-        if (!isValidEmail(email)) {
+        if (!isValidEmail(checkEmail)) {
             updateState((prevState)=> {
                 return {
                     ...prevState,
@@ -88,8 +89,6 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
     const passwordValidation = (text? : string) => {
         const checkPassword = text || password
         let isValid = true;
-        console.log(isValidPassword(checkPassword), "isValidPassword(password)>>>>>>>>>>>>")
-        console.log(isValidPassword(checkPassword), "isValidPassword(password)>>>>>>>>>>>>")
         if (!isValidPassword(checkPassword))  {
             updateState((prevState)=> {
                 return {
@@ -146,6 +145,37 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
         navigation.navigate('Login');
     }
 
+    const handleRegister = () => {
+        if(dataValidation()){
+            updateState((prevState)=>{
+                return {
+                    ...prevState,
+                    errors: {}
+                }
+            })
+            registerUser().then((r)=>{
+                navigation.navigate('Login')
+            }).catch((err)=>{
+                const errorCode = err.errorCode as string;
+                const stateErrors: Record<string, string> = {};
+                stateErrors[errorCode] = err.message;
+                updateState((prevState)=>{
+                    return {
+                        ...prevState,
+                        errors: stateErrors
+                    }
+                })
+            })
+        } else {
+            updateState((prevState)=>{
+                return {
+                    ...prevState,
+                    errors: { ...prevState.errors ,generalError: "Field validation failed"}
+                }
+            })
+        }
+    }
+
     // ***** Handle Events End
 
 
@@ -160,7 +190,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
                 style={[styles.input, state.errors.emailError ? styles.inputError : {}]}
                 placeholder="Email"
                 onChangeText={(text) => {
-                    emailValidation()
+                    emailValidation(text)
                     setField('email', text)
                 }}
                 value={email}
@@ -229,24 +259,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
             />
             {state.errors.cPasswordError && <Text style={styles.errorText}>{state.errors.cPasswordError}</Text>}
             {state.errors.generalError && <Text style={styles.errorText}>{state.errors.generalError}</Text>}
-            <TouchableOpacity style={styles.button} onPress={()=>{
-                if(dataValidation()){
-                    updateState((prevState)=>{
-                        return {
-                            ...prevState,
-                            errors: {}
-                        }
-                    })
-                    handleRegister()
-                } else {
-                    updateState((prevState)=>{
-                        return {
-                            ...prevState,
-                            errors: { ...prevState.errors ,generalError: "Check field validation before register"}
-                        }
-                    })
-                }
-            }}>
+            <TouchableOpacity style={styles.button} onPress={handleRegister}>
                 <Text style={{ color: colorSchemes.textColors.lightText }}>Register</Text>
             </TouchableOpacity>
             <Text>

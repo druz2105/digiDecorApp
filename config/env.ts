@@ -1,5 +1,6 @@
 import Config from 'react-native-config';
 
-export default {
-    REACT_APP_API_URL: Config.API_URL
+console.log(Config.API_URL, "Config.API_URL>>>>>>>>>")
+export const cleanEnv = {
+    API_URL: Config.API_URL
 }

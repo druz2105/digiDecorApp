@@ -1,6 +1,7 @@
 import {create} from 'zustand';
 import {createUser} from "../../services/usersAPI";
 import {UserRegisterInterface} from "../../services/interfaces/userAPIRequest";
+import {CreateUserResponseInterface} from "../../services/interfaces/userAPIResponse";
 
 interface RegistrationStore {
     email: string;
@@ -8,9 +9,9 @@ interface RegistrationStore {
     lastName: string;
     password: string;
     confirmPassword: string;
-    gender: string;
-    setField: (field: string, value: string) => void;
-    handleRegister:  () => void;
+    setField: (field: 'email' | 'firstName' | 'lastName' | 'password' | 'confirmPassword', value: string) => void;
+    resetRegistrationStore: () => void;
+    registerUser:  () => Promise<CreateUserResponseInterface>;
 }
 
 export const useRegistrationStore = create<RegistrationStore>((set, get) => ({
@@ -19,21 +20,25 @@ export const useRegistrationStore = create<RegistrationStore>((set, get) => ({
     lastName: '',
     password: '',
     confirmPassword: '',
-    gender: 'male',
+    resetRegistrationStore: () => set({
+            email: '',
+            firstName: '',
+            lastName: '',
+            password: '',
+            confirmPassword: ''
+        }),
     setField: (field, value) => set({ [field]: value }),
-    handleRegister: async () => {
-        const emailSplit = get().email.split('@')
+    registerUser: async () => {
         const data: UserRegisterInterface = {
             email: get().email,
-            username: emailSplit[0],
             firstName: get().firstName,
             lastName: get().lastName,
             password: get().password,
         }
         try{
-            await createUser(data)
+            return  await createUser(data)
         } catch (e) {
-            console.log(e)
+            throw e
         }
     },
 }));

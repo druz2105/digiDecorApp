@@ -1,14 +1,9 @@
-import axios, {AxiosError, AxiosInstance, AxiosResponse} from 'axios';
-import env from "../config/env";
+import axios, {AxiosError, AxiosInstance} from 'axios';
+import {cleanEnv} from "../config/env";
 
-
-export function isAxiosResponse(response: any): response is AxiosResponse {
-    return response && response.data !== undefined;
-}
-
-export function throwResponseError(response: any): never {
-    let errorMsg: string = ((response as AxiosError).response?.data as any)?.message;
-    let errorCode: string | undefined = ((response as AxiosError).response?.data as any)?.errorCode;
+export function throwResponseError(errorData: any): never {
+    let errorMsg: string = ((errorData as AxiosError).response?.data as any)?.message;
+    let errorCode: string | undefined = ((errorData as AxiosError).response?.data as any)?.errorCode;
 
     if (!errorMsg) errorMsg = 'Something went wrong';
     if (!errorCode) errorCode = 'generalError';
@@ -20,5 +15,5 @@ export function throwResponseError(response: any): never {
 }
 
 export const Axios: AxiosInstance = axios.create({
-    baseURL: `${env.REACT_APP_API_URL || 'http://localhost:3000'}`,
+    baseURL: `${cleanEnv.API_URL || 'http://192.168.249.192:3000'}`,
 });
