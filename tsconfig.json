@@ -2,5 +2,13 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true
-  }
+  },
+  "include": [
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "node_modules/@types" // Add this line if it's not already there
+  ],
+  "exclude": [
+    "node_modules"
+  ],
 }
