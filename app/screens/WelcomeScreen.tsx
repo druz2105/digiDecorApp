@@ -1,26 +1,20 @@
 import React, {useEffect} from 'react'
-import {Image, StyleSheet, Text, View} from "react-native"
+import {Image, SafeAreaView, StyleSheet, Text} from "react-native"
 import {CompositeScreenProps} from "@react-navigation/core/src/types";
 
-interface WelcomeScreenProps{
-    navigation: any
-}
+
 function WelcomeScreen({navigation}: CompositeScreenProps<any, any>){
     useEffect(() => {
-        // Simulate a delay or perform any async tasks (e.g., data loading)
-        const fetchData = async () => {
-            await new Promise(resolve => setTimeout(resolve, 3000));
-            navigation.navigate('Register');
-        };
-
-        fetchData();
+        return navigation.addListener('focus', () => {
+            navigation.navigate('Login')
+        });
     }, []);
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image style={styles.background} source={require('../assets/images/background.jpeg')}></Image>
             <Text style={styles.text}>Welcome to Digi Decor!</Text>
-        </View>
+        </SafeAreaView>
     );
 }
 

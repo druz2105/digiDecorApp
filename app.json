@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "digiDecorApp",
-    "slug": "digiDecorApp",
+    "slug": "digi-decor",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./app/assets/images/icon.png",
@@ -15,16 +15,27 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.druz2105.digidecor",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.druz2105.digidecor"
     },
     "web": {
       "favicon": "./app/assets/images/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5dd333da-6f47-447b-8522-67e1bad3347d"
+      }
+    },
+    "owner": "druz2105"
   }
 }

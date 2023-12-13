@@ -1,5 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import {Image, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View} from "react-native"
+import {
+    Image,
+    SafeAreaView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    TouchableWithoutFeedback,
+    View
+} from "react-native"
 import {CompositeScreenProps} from "@react-navigation/core/src/types";
 import {useRegistrationStore} from "../store/registerStore";
 import {colorSchemes} from "../styles/themes";
@@ -135,7 +144,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
     }
 
     const dataValidation = () => {
-        return emailValidation() && passwordValidation() && isFieldValid('firstName', firstName) && isFieldValid('lastName', lastName) && isFieldValid('confirmPassword', confirmPassword)
+        return emailValidation() && passwordValidation() && isFieldValid('firstName', firstName) && isFieldValid('lastName', lastName) && confirmPasswordValidation()
     }
 
     // ***** Field Validation End
@@ -182,7 +191,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
     // ***** Start Screen UI view
 
     return (
-        <View
+        <SafeAreaView
             style={styles.container}
         >
             <Image source={require('../assets/images/profile-image.png')} style={styles.profileLogo} />
@@ -268,7 +277,7 @@ function RegisterScreen({navigation}: CompositeScreenProps<any, any>){
             <TouchableWithoutFeedback onPress={handleRedirectLogin}>
                 <Text style={{ color: colorSchemes.textColors.urlText }}>Login here</Text>
             </TouchableWithoutFeedback>
-        </View>
+        </SafeAreaView>
     );
 
     // ***** Screen UI view End

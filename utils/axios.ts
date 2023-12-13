@@ -1,5 +1,6 @@
 import axios, {AxiosError, AxiosInstance} from 'axios';
 import {cleanEnv} from "../config/env";
+import {getSecureStorageData} from "./secureStorage";
 
 export function throwResponseError(errorData: any): never {
     let errorMsg: string = ((errorData as AxiosError).response?.data as any)?.message;
@@ -15,5 +16,5 @@ export function throwResponseError(errorData: any): never {
 }
 
 export const Axios: AxiosInstance = axios.create({
-    baseURL: `${cleanEnv.API_URL || 'http://192.168.249.192:3000'}`,
+    baseURL: `${cleanEnv.API_URL || 'http://172.20.10.2:3000'}`,
 });

@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {createUser} from "../../services/usersAPI";
+import {createUserAPI} from "../../services/usersAPI";
 import {UserRegisterInterface} from "../../services/interfaces/userAPIRequest";
 import {CreateUserResponseInterface} from "../../services/interfaces/userAPIResponse";
 
@@ -36,7 +36,7 @@ export const useRegistrationStore = create<RegistrationStore>((set, get) => ({
             password: get().password,
         }
         try{
-            return  await createUser(data)
+            return  await createUserAPI(data)
         } catch (e) {
             throw e
         }

@@ -1,5 +1,5 @@
 import {create} from 'zustand';
-import {loginUser} from "../../services/usersAPI";
+import {loginUserAPI} from "../../services/usersAPI";
 import {UserLoginInterface} from "../../services/interfaces/userAPIRequest";
 import {LoginResponseInterface} from "../../services/interfaces/userAPIResponse";
 
@@ -22,7 +22,7 @@ export const useLoginStore = create<LoginStore>((set, get) => ({
             password: get().password,
         }
         try {
-            return await loginUser(data)
+            return await loginUserAPI(data)
         } catch (e) {
             throw e
         }

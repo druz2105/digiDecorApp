@@ -11,7 +11,15 @@ export const setStorageData = async (key: string, token: string) => {
 
 export const getStorageData = async (key: string) => {
     try {
-        await AsyncStorage.getItem(key);
+        return  await AsyncStorage.getItem(key);
+    } catch (error) {
+        console.error('Error storing token:', error);
+    }
+};
+
+export const deleteStorageData = async (key: string) => {
+    try {
+        await AsyncStorage.removeItem(key);
     } catch (error) {
         console.error('Error storing token:', error);
     }
