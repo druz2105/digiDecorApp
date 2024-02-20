@@ -9,7 +9,7 @@
     "postinstall": "react-native config"
   },
   "dependencies": {
-    "@expo/webpack-config": "^19.0.0",
+    "@expo/webpack-config": "^19.0.0",git
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-picker/picker": "2.4.10",
     "@react-navigation/native": "^6.1.9",
