@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="feat: :zap: Implemented authentication and routing, Added user profile view" />
+    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="feat: :zap: Implemented authentication and routing, Added user profile view">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/SSR_TSRPT.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/authStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/authStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/userProfileStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/userProfileStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/secureStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/secureStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,13 +52,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/druz/Desktop/learning/testApp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dhruvil/Desktop/sem3/prg/digiDecorApp/app/assets/images/categories&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/druz/Desktop/learning/digiDecorApp/node_modules/typescript/lib&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\dhruvil\\Desktop\\sem3\\prg\\digiDecorApp\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -63,6 +74,11 @@
         <entry key="com.intellij.reactbuddy.storybook" value="false" />
       </map>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dhruvil\Desktop\sem3\prg\digiDecorApp\app\assets\images\categories" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="ios" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -105,6 +121,11 @@
       <workItem from="1705690525051" duration="516000" />
       <workItem from="1705701947587" duration="55000" />
       <workItem from="1708356251328" duration="159000" />
+      <workItem from="1708444637484" duration="6905000" />
+      <workItem from="1708477698385" duration="2249000" />
+      <workItem from="1708536226701" duration="1833000" />
+      <workItem from="1708817489682" duration="805000" />
+      <workItem from="1709646308448" duration="7691000" />
     </task>
     <task id="LOCAL-00001" summary="feat: :zap: Implemented authentication and routing, Added user profile view">
       <option name="closed" value="true" />

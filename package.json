@@ -9,7 +9,7 @@
     "postinstall": "react-native config"
   },
   "dependencies": {
-    "@expo/webpack-config": "^19.0.0",git
+    "@expo/webpack-config": "^19.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-picker/picker": "2.4.10",
     "@react-navigation/native": "^6.1.9",
@@ -19,7 +19,7 @@
     "envalid": "^8.0.0",
     "expo": "~49.0.15",
     "expo-linear-gradient": "~12.3.0",
-    "expo-secure-store": "~12.3.1",
+    "expo-secure-store": "^12.8.1",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -30,7 +30,7 @@
     "react-native-screens": "~3.22.0",
     "react-native-toast-message": "^2.1.7",
     "react-native-web": "~0.19.6",
-    "zustand": "^4.4.6"
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

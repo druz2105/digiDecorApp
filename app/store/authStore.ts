@@ -19,7 +19,7 @@ export const authStore = create<AuthStore>()((set)=> {
         ...AuthState,
         setIsAuthenticated:(value: boolean) => set({isAuthenticated : value }),
         authenticateUser: async () => {
-            const token = await getSecureStorageData('userAuthToken');
+            const token = await getSecureStorageData("userAuthToken");
             if (token) {
                 try {
                     await verifyUserAPI(`JWT ${token}`);

@@ -1,6 +1,6 @@
-import {create} from "zustand/esm";
 import {getUserAPI, updateUserAPI} from "../../services/usersAPI";
 import {UserResponseInterface, UpdateUserInterface} from "../../services/interfaces/userAPIResponse";
+import {create} from "zustand";
 
 interface UserProfileStore {
     user: UserResponseInterface;
