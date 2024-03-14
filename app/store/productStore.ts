@@ -6,7 +6,7 @@ type ProductStore = {
     categories: Array<CategoriesListAPIResponse>,
     products: Array<Record<string, string>> | Array<any>,
     fetchCategories: () => Promise<void>,
-    fetchProductByCategory: () => Promise<void>,
+    fetchProductByCategory: (categoryId: string) => Promise<void>,
 };
 
 
@@ -26,9 +26,10 @@ export const useProductStore = create<ProductStore>((set, get) => ({
             throw err
         }
     },
-    fetchProductByCategory: async () => {
+    fetchProductByCategory: async (categoryId: string) => {
         try {
-            const products = await getProductByCategory();
+            console.log(categoryId, "categoryId>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            const products = await getProductByCategory(categoryId);
             set((prevState) => {
                 return {
                     ...prevState,

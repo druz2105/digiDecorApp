@@ -9,18 +9,23 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {CompositeScreenProps} from "@react-navigation/core/src/types";
 import {useProductStore} from "../store/productStore";
-import {asn1} from "node-forge";
+import {RouteProp} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {CommonNavigatorParamList} from "../../services/interfaces/common-screens";
 
-function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
-    const {categories, fetchCategories} = useProductStore();
+interface ProductListProps {
+    navigation: StackNavigationProp<CommonNavigatorParamList, 'ProductListScreen'>;
+    route: RouteProp<CommonNavigatorParamList, 'ProductListScreen'>;
+}
+
+function ProductListScreen({navigation, route}: ProductListProps) {
+    const {products, fetchProductByCategory} = useProductStore();
     const [isLoading, setIsLoading] = useState(false);
+    const { categoryId } = route.params;
     useEffect(() => {
         const getData = async () => {
-            setIsLoading(true);
-            await fetchCategories()
-            setIsLoading(false);
+            await fetchProductByCategory(categoryId)
         }
         getData();
     }, []);
@@ -39,13 +44,10 @@ function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>Furniture Categories</Text>
             <ScrollView contentContainerStyle={styles.dashboard}>
-                {categories.map(item => (
+                {products.map(item => (
                     <TouchableOpacity
                         key={item.name}
                         style={styles.categoryItem}
-                        onPress={()=>{
-                            navigation.navigate('ProductListScreen', { categoryId: item.id });
-                        }}
                     >
                         <Image
                             style={styles.categoryImage}
@@ -104,4 +106,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default HomeScreen;
+export default ProductListScreen;

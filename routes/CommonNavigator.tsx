@@ -8,14 +8,9 @@ import {authStore} from "../app/store/authStore";
 import React, {useEffect, useState} from "react";
 import {ActivityIndicator, View} from "react-native";
 import {UserProfileHeaderButton} from "../app/common/UserProfileHeaderIcon";
+import ProductListScreen from "../app/screens/Product.List.Screen";
+import {CommonNavigatorParamList} from "../services/interfaces/common-screens";
 
-type CommonNavigatorParamList = {
-    Welcome: undefined;
-    Register: undefined;
-    Login: undefined;
-    Home: undefined;
-    UserProfile: undefined;
-};
 
 const Stack = createNativeStackNavigator<CommonNavigatorParamList>();
 
@@ -85,6 +80,7 @@ export function CommonNavigator() {
                         name="UserProfile"
                         component={UserProfileScreen}
                     />
+                    <Stack.Screen name="ProductListScreen" component={ProductListScreen}/>
                 </>
             }
         </Stack.Navigator>

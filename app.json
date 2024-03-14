@@ -16,7 +16,6 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.druz2105.digidecor",
       "config": {
         "usesNonExemptEncryption": false
       }
@@ -25,17 +24,12 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.druz2105.digidecor"
+      }
     },
     "web": {
       "favicon": "./app/assets/images/favicon.png"
     },
-    "extra": {
-      "eas": {
-        "projectId": "5dd333da-6f47-447b-8522-67e1bad3347d"
-      }
-    },
+    "extra": {},
     "owner": "druz2105"
   }
 }
