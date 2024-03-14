@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {
     ActivityIndicator,
-    Image,
+    Image, RefreshControl,
     SafeAreaView,
     ScrollView,
     StyleSheet,
@@ -22,7 +22,16 @@ interface ProductListProps {
 function ProductListScreen({navigation, route}: ProductListProps) {
     const {products, fetchProductByCategory} = useProductStore();
     const [isLoading, setIsLoading] = useState(false);
-    const { categoryId } = route.params;
+    const [refreshing, setRefreshing] = useState(false);
+
+    const { categoryId, categoryName } = route.params;
+
+    const onRefresh = useCallback(async () => {
+        setRefreshing(true);
+        await fetchProductByCategory(categoryId);
+        setRefreshing(false);
+    }, []);
+
     useEffect(() => {
         const getData = async () => {
             await fetchProductByCategory(categoryId)
@@ -42,8 +51,8 @@ function ProductListScreen({navigation, route}: ProductListProps) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Furniture Categories</Text>
-            <ScrollView contentContainerStyle={styles.dashboard}>
+            <Text style={styles.title}>{categoryName}</Text>
+            <ScrollView contentContainerStyle={styles.dashboard} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}>
                 {products.map(item => (
                     <TouchableOpacity
                         key={item.name}

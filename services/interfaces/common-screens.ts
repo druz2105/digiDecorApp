@@ -4,5 +4,5 @@ export type CommonNavigatorParamList = {
     Login: undefined;
     Home: undefined;
     UserProfile: undefined;
-    ProductListScreen: { categoryId: string };
+    ProductListScreen: { categoryId: string, categoryName: string };
 };

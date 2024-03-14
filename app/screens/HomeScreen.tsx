@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import {
     ActivityIndicator,
-    Image,
+    Image, RefreshControl,
     SafeAreaView,
     ScrollView,
     StyleSheet,
@@ -16,6 +16,13 @@ import {asn1} from "node-forge";
 function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
     const {categories, fetchCategories} = useProductStore();
     const [isLoading, setIsLoading] = useState(false);
+    const [refreshing, setRefreshing] = useState(false);
+
+    const onRefresh = useCallback(async () => {
+        setRefreshing(true);
+        await fetchCategories();
+        setRefreshing(false);
+    }, []);
     useEffect(() => {
         const getData = async () => {
             setIsLoading(true);
@@ -37,14 +44,19 @@ function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Furniture Categories</Text>
-            <ScrollView contentContainerStyle={styles.dashboard}>
+            <Text style={styles.title}>Categories</Text>
+            <ScrollView contentContainerStyle={styles.dashboard} refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefresh}
+                />
+            }>
                 {categories.map(item => (
                     <TouchableOpacity
                         key={item.name}
                         style={styles.categoryItem}
                         onPress={()=>{
-                            navigation.navigate('ProductListScreen', { categoryId: item.id });
+                            navigation.navigate('ProductListScreen', { categoryId: item.id, categoryName: item.name });
                         }}
                     >
                         <Image

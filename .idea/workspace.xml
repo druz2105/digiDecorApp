@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="feat: :zap: Implemented authentication and routing, Added user profile view">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="feat: :sparkles: Implemented product list screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/store/productStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/productStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/CommonNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/routes/CommonNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/productAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/productAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/interfaces/common-screens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/interfaces/common-screens.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +132,8 @@
       <workItem from="1710276942318" duration="761000" />
       <workItem from="1710288434479" duration="2782000" />
       <workItem from="1710354282701" duration="2974000" />
+      <workItem from="1710382008723" duration="920000" />
+      <workItem from="1710387496329" duration="1727000" />
     </task>
     <task id="LOCAL-00001" summary="feat: :zap: Implemented authentication and routing, Added user profile view">
       <option name="closed" value="true" />
@@ -146,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702511581465</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: :sparkles: Implemented product list screen">
+      <option name="closed" value="true" />
+      <created>1710382222430</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710382222430</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: :zap: Implemented authentication and routing, Added user profile view" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: :zap: Implemented authentication and routing, Added user profile view" />
+    <MESSAGE value="feat: :sparkles: Implemented product list screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: :sparkles: Implemented product list screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
