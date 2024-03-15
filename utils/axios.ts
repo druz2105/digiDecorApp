@@ -16,5 +16,5 @@ export function throwResponseError(errorData: any): never {
 }
 
 export const Axios: AxiosInstance = axios.create({
-    baseURL: `${cleanEnv.API_URL || 'http://192.168.2.88:3000'}`,
+    baseURL: `${cleanEnv.API_URL || 'http://172.20.10.2:3000'}`,
 });

@@ -57,6 +57,9 @@ function ProductListScreen({navigation, route}: ProductListProps) {
                     <TouchableOpacity
                         key={item.name}
                         style={styles.categoryItem}
+                        onPress={()=>{
+                            navigation.navigate('ProductDetailScreen', { id: item.id });
+                        }}
                     >
                         <Image
                             style={styles.categoryImage}

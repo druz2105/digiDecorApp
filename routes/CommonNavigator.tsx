@@ -6,10 +6,12 @@ import UserProfileScreen from "../app/screens/UserProfileScreen";
 import HomeScreen from "../app/screens/HomeScreen";
 import {authStore} from "../app/store/authStore";
 import React, {useEffect, useState} from "react";
-import {ActivityIndicator, View} from "react-native";
+import {ActivityIndicator, TouchableOpacity, View} from "react-native";
 import {UserProfileHeaderButton} from "../app/common/UserProfileHeaderIcon";
 import ProductListScreen from "../app/screens/Product.List.Screen";
 import {CommonNavigatorParamList} from "../services/interfaces/common-screens";
+import ProductDetailScreen from "../app/screens/Product.Detail.Screen";
+import {HeaderBackButton} from "@react-navigation/elements";
 
 
 const Stack = createNativeStackNavigator<CommonNavigatorParamList>();
@@ -41,8 +43,6 @@ export function CommonNavigator() {
             </View>
         )
     }
-    // @ts-ignore
-    // @ts-ignore
     return (
         <Stack.Navigator initialRouteName={!isAuthenticated ? "Welcome": "Home"}>
             {!isAuthenticated
@@ -80,7 +80,12 @@ export function CommonNavigator() {
                         name="UserProfile"
                         component={UserProfileScreen}
                     />
-                    <Stack.Screen name="ProductListScreen" component={ProductListScreen}/>
+                    <Stack.Screen name="ProductListScreen" component={ProductListScreen} options={(navigation) => ({
+                        headerBackVisible: false,
+                    })}/>
+                    <Stack.Screen name="ProductDetailScreen" component={ProductDetailScreen} options={(navigation) => ({
+                        headerBackVisible: false,
+                    })}/>
                 </>
             }
         </Stack.Navigator>

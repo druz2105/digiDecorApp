@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="feat: :sparkles: Implemented product list screen">
+    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="fix: :zap: updated product list screen to add images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/productStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/productStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/CommonNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/routes/CommonNavigator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/interfaces/common-screens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/interfaces/common-screens.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/productAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/productAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/axios.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +137,11 @@
       <workItem from="1710288434479" duration="2782000" />
       <workItem from="1710354282701" duration="2974000" />
       <workItem from="1710382008723" duration="920000" />
-      <workItem from="1710387496329" duration="1727000" />
+      <workItem from="1710387496329" duration="1865000" />
+      <workItem from="1710443511135" duration="2305000" />
+      <workItem from="1710447515573" duration="12465000" />
+      <workItem from="1710465773669" duration="88000" />
+      <workItem from="1710466105743" duration="2559000" />
     </task>
     <task id="LOCAL-00001" summary="feat: :zap: Implemented authentication and routing, Added user profile view">
       <option name="closed" value="true" />
@@ -151,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710382222430</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix: :zap: updated product list screen to add images">
+      <option name="closed" value="true" />
+      <created>1710389534652</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710389534652</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +176,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: :zap: Implemented authentication and routing, Added user profile view" />
     <MESSAGE value="feat: :sparkles: Implemented product list screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: :sparkles: Implemented product list screen" />
+    <MESSAGE value="fix: :zap: updated product list screen to add images" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: :zap: updated product list screen to add images" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

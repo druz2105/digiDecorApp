@@ -14,19 +14,27 @@ import {useProductStore} from "../store/productStore";
 import {asn1} from "node-forge";
 
 function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
-    const {categories, fetchCategories} = useProductStore();
+    const {categories, errorMessage, fetchCategories} = useProductStore();
     const [isLoading, setIsLoading] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
 
     const onRefresh = useCallback(async () => {
         setRefreshing(true);
-        await fetchCategories();
+        try {
+            await fetchCategories();
+        } catch (err){
+            setIsLoading(false)
+        }
         setRefreshing(false);
     }, []);
     useEffect(() => {
         const getData = async () => {
             setIsLoading(true);
-            await fetchCategories()
+            try {
+                await fetchCategories();
+            } catch (err){
+                setIsLoading(false)
+            }
             setIsLoading(false);
         }
         getData();
@@ -40,6 +48,14 @@ function HomeScreen({navigation}: CompositeScreenProps<any, any>) {
                 <ActivityIndicator size="large" color="#0000ff" />
             </View>
         )
+    }
+
+    if(errorMessage){
+        return <View
+            style={styles.container}
+        >
+            <Text style={{color: "red"}}>{errorMessage}</Text>
+        </View>
     }
 
     return (
