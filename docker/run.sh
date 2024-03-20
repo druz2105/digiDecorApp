@@ -1,1 +1,1 @@
-yarn starta
+yarn start
