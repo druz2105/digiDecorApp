@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="fix: :zap: updated product list screen to add images">
+    <list default="true" id="25a1ee92-068a-4b90-aebd-ffdc5fd7c689" name="Changes" comment="fix: :bug: updated typo and bash">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/HomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/Product.List.Screen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/store/productStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/productStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/CommonNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/routes/CommonNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/interfaces/common-screens.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/interfaces/common-screens.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/productAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/services/productAPI.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/Product.Detail.Screen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/Product.Detail.Screen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/run.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +54,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/druz/Desktop/learning/digiDecorApp/node_modules/typescript/lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/druz/Desktop/projects/digiDecorPRG/digiDecorApp/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -142,6 +137,13 @@
       <workItem from="1710447515573" duration="12465000" />
       <workItem from="1710465773669" duration="88000" />
       <workItem from="1710466105743" duration="2559000" />
+      <workItem from="1710971311032" duration="33000" />
+      <workItem from="1711655167606" duration="394000" />
+      <workItem from="1712255159731" duration="1778000" />
+      <workItem from="1712259832003" duration="855000" />
+      <workItem from="1712263286013" duration="3776000" />
+      <workItem from="1712281162965" duration="475000" />
+      <workItem from="1712799957186" duration="756000" />
     </task>
     <task id="LOCAL-00001" summary="feat: :zap: Implemented authentication and routing, Added user profile view">
       <option name="closed" value="true" />
@@ -167,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710389534652</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: :bug: updated typo and bash">
+      <option name="closed" value="true" />
+      <created>1710970832623</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710970832623</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +187,8 @@
     <MESSAGE value="feat: :zap: Implemented authentication and routing, Added user profile view" />
     <MESSAGE value="feat: :sparkles: Implemented product list screen" />
     <MESSAGE value="fix: :zap: updated product list screen to add images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: :zap: updated product list screen to add images" />
+    <MESSAGE value="fix: :bug: updated typo and bash" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: :bug: updated typo and bash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react'
 import {
-    ActivityIndicator,
+    ActivityIndicator, Button,
     Image,
     RefreshControl,
     ScrollView,
@@ -45,8 +45,9 @@ function ProductDetailScreen({navigation, route}: ProductDetailProps) {
 
     useEffect(() => {
         const getData = async () => {
+            setIsLoading(true)
             await fetchProductById(id)
-            console.log(product, "product?>?????")
+            setIsLoading(false)
         }
         getData();
     }, []);
@@ -61,29 +62,35 @@ function ProductDetailScreen({navigation, route}: ProductDetailProps) {
         )
     }
     return (
-        <ScrollView contentContainerStyle={styles.dashboard} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}>
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>{product.name}</Text>
-                <TouchableOpacity onPress={() => product.likedProduct ? handleUnLikeProduct(product.id) : handleLikeProduct(product.id)}>
-                    <FontAwesome name="heart" size={24} color={product.likedProduct ? 'red' : 'gray'} style={styles.button}/>
-                </TouchableOpacity>
-            </View>
-            {product.imageURLs && product.imageURLs.map((url: string) => (
-                <Image source={{ uri: url }} style={styles.categoryImage} key={url} />
-            ))}
-            <View style={styles.descriptionContainer}>
-                <Text style={styles.title}>About Product</Text>
-                <Text style={styles.description}>
-                    {product.description}
-                </Text>
-            </View>
-            <View style={styles.descriptionContainer}>
-                <Text style={styles.title}>Dimensions</Text>
-                <Text style={styles.description}>
-                    {product.dimensions}
-                </Text>
-            </View>
-        </ScrollView>
+            <ScrollView contentContainerStyle={styles.dashboard} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>{product.name}</Text>
+                    <TouchableOpacity onPress={() => product.likedProduct ? handleUnLikeProduct(product.id) : handleLikeProduct(product.id)}>
+                        <FontAwesome name="heart" size={24} color={product.likedProduct ? 'red' : 'gray'} style={styles.button}/>
+                    </TouchableOpacity>
+                </View>
+                {product.imageURLs && product.imageURLs.map((url: string) => (
+                    <Image source={{ uri: url }} style={styles.categoryImage} key={url} />
+                ))}
+                <View style={styles.sectionContainer}>
+                    {product.modelURL ?
+                    <TouchableOpacity style={styles.bigBlueButton}>
+                        <Text style={{ color: 'white' }}>View in 3D</Text>
+                    </TouchableOpacity> : ''}
+                    <View style={styles.descriptionContainer}>
+                        <Text style={styles.title}>About Product</Text>
+                        <Text style={styles.description}>
+                            {product.description}
+                        </Text>
+                    </View>
+                    <View style={styles.descriptionContainer}>
+                        <Text style={styles.title}>Dimensions</Text>
+                        <Text style={styles.description}>
+                            {product.dimensions}
+                        </Text>
+                    </View>
+                </View>
+            </ScrollView>
     );
 }
 
@@ -152,7 +159,19 @@ const styles = StyleSheet.create({
     },
     categoryTitle: {
         fontSize: 16
-    }
+    },
+    sectionContainer: {
+        paddingHorizontal: 20,
+        marginTop: 20,
+    },
+    bigBlueButton: {
+        width: '100%',
+        backgroundColor: 'blue',
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 20,
+        alignItems: 'center'
+    },
 })
 
 export default ProductDetailScreen;
