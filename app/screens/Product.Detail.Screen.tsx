@@ -23,6 +23,7 @@ interface ProductDetailProps {
 function ProductDetailScreen({navigation, route}: ProductDetailProps) {
     const {product, errorMessage, fetchProductById, likeProduct, unlikeProduct} = useProductStore();
     const [isLoading, setIsLoading] = useState(false);
+    const [view3D, setView3D] = useState(false);
     const [refreshing, setRefreshing] = useState(false);
 
     const { id } = route.params;
@@ -34,13 +35,17 @@ function ProductDetailScreen({navigation, route}: ProductDetailProps) {
     }, []);
 
     const handleLikeProduct = async (productId: string)=>{
+        setIsLoading(true)
         await likeProduct(productId)
         await fetchProductById(productId)
+        setIsLoading(false)
     }
 
     const handleUnLikeProduct = async (productId: string)=>{
+        setIsLoading(true)
         await unlikeProduct(productId)
         await fetchProductById(productId)
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -61,6 +66,9 @@ function ProductDetailScreen({navigation, route}: ProductDetailProps) {
             </View>
         )
     }
+    if (view3D){
+        return <View></View>
+    }
     return (
             <ScrollView contentContainerStyle={styles.dashboard} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}>
                 <View style={styles.titleContainer}>
@@ -74,7 +82,7 @@ function ProductDetailScreen({navigation, route}: ProductDetailProps) {
                 ))}
                 <View style={styles.sectionContainer}>
                     {product.modelURL ?
-                    <TouchableOpacity style={styles.bigBlueButton}>
+                    <TouchableOpacity style={styles.bigBlueButton} onPress={()=>{setView3D(true)}}>
                         <Text style={{ color: 'white' }}>View in 3D</Text>
                     </TouchableOpacity> : ''}
                     <View style={styles.descriptionContainer}>
@@ -153,7 +161,7 @@ const styles = StyleSheet.create({
     },
     categoryImage: {
         width: '100%',
-        height: 200,
+        height: 500,
         resizeMode: 'cover', // Or 'contain' depending on your preference
         marginBottom: 10
     },

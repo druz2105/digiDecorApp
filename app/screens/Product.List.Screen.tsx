@@ -61,6 +61,7 @@ function ProductListScreen({navigation, route}: ProductListProps) {
                             navigation.navigate('ProductDetailScreen', { id: item.id });
                         }}
                     >
+                        {item.modelURL && <Text>3D Available</Text>}
                         <Image
                             style={styles.categoryImage}
                             source={{ uri: item.imageURL }}
